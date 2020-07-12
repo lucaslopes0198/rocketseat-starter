@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btnBox" type="submit">Botão</button>
+    <div id="boxes">
+    </div>
+    <script>
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        var containerElement = document.querySelector("#boxes");
+        var btnElement = document.querySelector("#btnBox");
+
+        btnElement.onclick = function () {
+            var box = document.createElement("div");
+            box.className = "box";
+            box.style.width = "50px";
+            box.style.height = "50px";
+            box.style.display = "inline-block";
+            box.style.marginRight = "5px";
+            box.style.backgroundColor = "red";
+            box.onmouseover = function () {
+                var newColor = getRandomColor(); // #E943F0
+                box.style.backgroundColor = newColor;
+            };
+            containerElement.appendChild(box);
+        };
+    </script>
+</body>
+</html>

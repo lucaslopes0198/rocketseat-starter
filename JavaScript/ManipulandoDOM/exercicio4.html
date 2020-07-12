@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="list">
+        <ul></ul>
+        <input type="text" name="nome">
+        <button onClick="adicionar()">Adicionar</button>
+    </div>
+    <script>
+        var containerElement = document.querySelector("#list ul")
+        var nomes = ["Diego", "Gabriel", "Lucas"];
+
+        for (nome of nomes) {
+            var listElement = document.createElement("li")
+            var node = document.createTextNode(nome)
+            listElement.appendChild(node)
+            containerElement.appendChild(listElement)
+        }
+
+        var inputElement = document.querySelector("#list input")
+        function adicionar() {
+            var listElement = document.createElement("li")
+            var node = document.createTextNode(inputElement.value)
+            listElement.appendChild(node)
+            containerElement.appendChild(listElement)
+            inputElement.value = ""
+        }
+    </script>
+</body>
+</html>
